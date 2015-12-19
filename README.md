@@ -1,0 +1,2 @@
+# WeWish
+We Wish App
