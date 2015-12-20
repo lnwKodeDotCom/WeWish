@@ -1,20 +1,18 @@
 Template.index.onCreated( () => {
   let template = Template.instance();
 
-  template.wishitems = new ReactiveVar();
-
-  Meteor.call('generateWishlist', 10, (error, result) => {
-    template.wishitems.set(result||[]);
+  template.autorun(()=> {
+    template.subscribe('wishlist');
   });
 
 });
 
 Template.index.helpers({
   contentReady() {
-    return Template.instance().wishitems.get();
+    return Template.instance().subscriptionsReady();
   },
   wishitems() {
-    return Template.instance().wishitems.get();
+    return Wish.find().fetch();
   }
 });
 
