@@ -1,14 +1,17 @@
 
-var wishItems = [
-  { title: 'My wish list should be here.' },
-  { title: 'My wish list should be here.' },
-  { title: 'My wish list should be here.' },
-];
+Template.wishlist.onCreated(() => {
+  let template = Template.instance();
+  Meteor.call('generateWishlist', 10, (error, result) => {
+    if (!error) {
+      Session.set('wishlist', result);
+    }
+  });
+});
 
 Template.wishlist.helpers({
 
   wishList() {
-    return wishItems;
+    return Session.get('wishlist');
   }
 
 });
