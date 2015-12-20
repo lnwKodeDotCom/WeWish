@@ -3,6 +3,7 @@ const _generate_wishlist = (max) => {
   for (let i=0; i<max; i++) {
     wishlist.push( {title: faker.lorem.sentence()} );
   }
+  Meteor._sleepForMs(2000);
   return wishlist;
 };
 
