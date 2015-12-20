@@ -1,0 +1,3 @@
+Template.wishItem.helpers({
+
+});

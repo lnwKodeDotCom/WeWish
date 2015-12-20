@@ -1,0 +1,11 @@
+<template name="wishDetail">
+  {{#unless contentReady}}
+    {{> spinner}}
+  {{else}}
+      <div class="col-md-8 col-md-offset-2">
+        <div class="jumbotron">
+          {{> wishItem item=detail}}
+        </div>
+      </div>
+  {{/unless}}
+</template>

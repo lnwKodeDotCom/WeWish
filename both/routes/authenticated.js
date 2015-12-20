@@ -15,3 +15,10 @@ authenticatedRoutes.route( '/dashboard', {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
+
+authenticatedRoutes.route('/wish-detail/:_id', {
+  name: 'wishDetail',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'wishDetail' } );
+  }
+});
