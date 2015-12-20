@@ -1,9 +1,9 @@
 <template name="index">
-  <div class="col-md-8 col-md-offset-2">
-    {{#if contentReady}}
+  {{#unless contentReady}}
+    {{> loading}}
+  {{else}}
+    <div class="col-md-8 col-md-offset-2">
       {{> wishlist}}
-    {{else}}
-      <div class="jumbotron">Loading ...</div>
-    {{/if}}
-  </div>
+    </div>
+  {{/unless}}
 </template>

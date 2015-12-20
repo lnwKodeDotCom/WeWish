@@ -13,3 +13,7 @@ Template.index.helpers({
   }
 });
 
+Template.index.onDestroyed(()=>{
+  Session.set('wishlist','');
+});
+
