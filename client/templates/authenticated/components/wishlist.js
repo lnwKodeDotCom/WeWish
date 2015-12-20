@@ -10,7 +10,7 @@ Template.wishlist.onCreated(() => {
 
 Template.wishlist.helpers({
 
-  wishList() {
+  wishlist() {
     return Session.get('wishlist');
   }
 
