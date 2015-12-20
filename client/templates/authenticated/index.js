@@ -1,4 +1,15 @@
 Template.index.onCreated( () => {
-  Template.instance().subscribe( 'template' );
+  let template = Template.instance();
+  Meteor.call('generateWishlist', 10, (error, result) => {
+    if (!error) {
+      Session.set('wishlist', result);
+    }
+  });
+});
+
+Template.index.helpers({
+  contentReady() {
+    return !!Session.get('wishlist');
+  }
 });
 
