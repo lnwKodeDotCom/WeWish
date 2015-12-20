@@ -1,6 +1,5 @@
-
-Template.wishlist.onCreated(() => {
+Template.wishList.onCreated(() => {
 });
 
-Template.wishlist.helpers({
+Template.wishList.helpers({
 });

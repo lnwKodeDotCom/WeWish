@@ -1,7 +1,7 @@
-<template name="wishlist">
-  {{#each wishitems}}
+<template name="wishList">
+  {{#each wish in list}}
     <div class="jumbotron text-center" style="padding: 20px;">
-      <h2><a href="{{pathFor 'wishDetail' _id=this._id }}">{{this.title}}</a></h2>
+      <h2><a href="{{pathFor 'wishDetail' _id=wish._id }}">{{wish.title}}</a></h2>
     </div>
   {{/each}}
 </template>

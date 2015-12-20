@@ -2,7 +2,7 @@ Template.index.onCreated( () => {
   let template = Template.instance();
 
   template.autorun(()=> {
-    template.subscribe('wishlist');
+    template.subscribe('wishList');
   });
 
 });
@@ -11,7 +11,7 @@ Template.index.helpers({
   contentReady() {
     return Template.instance().subscriptionsReady();
   },
-  wishitems() {
+  wishItems() {
     return Wish.find().fetch();
   }
 });

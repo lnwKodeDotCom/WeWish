@@ -1,4 +1,4 @@
-Meteor.publish('wishlist', function() {
+Meteor.publish('wishList', function() {
   return Wish.find();
 });
 
