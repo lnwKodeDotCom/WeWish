@@ -1,7 +1,7 @@
 const _generate_wishlist = (max) => {
   let wishlist = [];
   for (let i=0; i<max; i++) {
-    wishlist.push(faker.lorem.sentence());
+    wishlist.push( {title: faker.lorem.sentence()} );
   }
   return wishlist;
 };
