@@ -1,28 +1,21 @@
 Template.index.onCreated( () => {
   let template = Template.instance();
 
-  template.state = new ReactiveDict();
-  template.state.setDefault({
-    contentReady: false,
-    wishitems: []
-  });
+  template.wishitems = new ReactiveVar();
 
   Meteor.call('generateWishlist', 10, (error, result) => {
-    template.state.set('contentReady',true);
-    template.state.set('wishitems', result);
+    template.wishitems.set(result||[]);
   });
 
 });
 
 Template.index.helpers({
   contentReady() {
-    return Template.instance().state.get('contentReady');
+    return Template.instance().wishitems.get();
   },
   wishitems() {
-    return Template.instance().state.get('wishitems');
+    return Template.instance().wishitems.get();
   }
 });
 
-Template.index.onDestroyed(()=>{
-});
 
