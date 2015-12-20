@@ -4,9 +4,7 @@
   {{else}}
       <div class="col-md-8 col-md-offset-2">
         <div class="jumbotron">
-          {{#with wishItem}}
-          <h2>{{title}}</h2>
-          {{/with}}
+          {{> wishItem item=detail}}
         </div>
       </div>
   {{/unless}}

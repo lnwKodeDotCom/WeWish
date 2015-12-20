@@ -12,7 +12,7 @@ Template.wishDetail.helpers({
   contentReady() {
     return Template.instance().subscriptionsReady();
   },
-  wishItem() {
+  detail() {
     return Wish.findOne();
   }
 });
