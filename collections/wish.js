@@ -34,7 +34,7 @@ Wish.schema = new SimpleSchema({
   },
   date_created: {
     type: Date,
-    optional: false,
+    optional: true,
     autoValue: function() {
       if (this.isInsert) {
         return new Date();
@@ -44,6 +44,15 @@ Wish.schema = new SimpleSchema({
         this.unset();  // Prevent user from supplying their own value
       }
     },
+    autoform: {
+      omit: true
+    }
+  },
+
+  no_of_comments: {
+    type: Number,
+    optional: true,
+    defaultValue: 0,
     autoform: {
       omit: true
     }
