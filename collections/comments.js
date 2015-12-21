@@ -61,7 +61,7 @@ Comments.allow({
 });
 
 Comments.deny({
-  insert: () => false,
+  insert: (userId, document) => !userId,
   update: () => true,
   remove: () => true
 });
