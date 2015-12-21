@@ -4,9 +4,9 @@
   {{else}}
     <div class="col-md-8 col-md-offset-2">
       {{> wishList list=wishItems}}
-      {{#if moreWishes}}
-        <a class="btn btn-warning center-block load-more">load more</a><br>
-      {{/if}}
+      {{#unless Template.subscriptionsReady}}
+        <div class="center-block text-center" style="height: 100px;">-- loading --</div>
+      {{/unless}}
     </div>
   {{/unless}}
 </template>
