@@ -63,3 +63,11 @@ Wish.deny({
   update: () => true,
   remove: () => true
 });
+
+Wish.helpers({
+  ownerName() {
+    let owner = Meteor.users.findOne(this.owner_id);
+    let emailName = (x) => x.address.split('@')[0];
+    return owner && owner.emails && owner.emails.length>0 && emailName(owner.emails[0]);
+  }
+});
