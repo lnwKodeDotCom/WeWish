@@ -1,9 +1,9 @@
 <template name="wishComments">
-    <div class="row">
-        {{#each item in comments}}
-          <div>{{item}}</div>
-        {{else}}
-          No comments yet
-        {{/each}}
+  {{#each item in comments}}
+    <div class="row" style="padding:15px 30px; font-size: larger;">
+      <div>{{item}}</div>
     </div>
+  {{else}}
+    No comments yet
+  {{/each}}
 </template>
