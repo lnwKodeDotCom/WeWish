@@ -21,7 +21,7 @@ Template.index.onRendered( function() {
 
   let template = this;
 
-  $(window).scroll(function() { //detect page scroll
+  $(window).bind('scroll.loadMore', function() { //detect page scroll
 
     if ($(window).scrollTop() + $(window).height() == $(document).height())  //user scrolled to bottom of the page?
     {
@@ -33,6 +33,10 @@ Template.index.onRendered( function() {
   });
 
 
+});
+
+Template.index.onDestroyed( function() {
+  $(window).unbind('scroll.loadMore');
 });
 
 Template.index.helpers({
