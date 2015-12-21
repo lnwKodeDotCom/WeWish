@@ -53,7 +53,7 @@ Wish.schema = new SimpleSchema({
 Wish.attachSchema(Wish.schema);
 
 Wish.allow({
-  insert: () => true,
+  insert: (userId, document) => userId===Meteor.userId(),
   update: () => false,
   remove: () => false
 });

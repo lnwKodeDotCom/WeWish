@@ -7,6 +7,8 @@ AutoForm.hooks({
     },
 
     // Called when any submit operation fails
-    onError: function(formType, error) {},
+    onError: function(formType, error) {
+      Bert.alert( error, 'error' );
+    },
   }
 });
