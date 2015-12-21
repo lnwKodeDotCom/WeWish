@@ -6,6 +6,7 @@ Template.index.onCreated( () => {
 
   template.autorun(()=> {
     template.subscribe('wishList', template.no_of_wishes.get());
+    template.subscribe('wishCount');
   });
 
 });
@@ -20,7 +21,7 @@ Template.index.helpers({
   },
   moreWishes() {
     var template = Template.instance();
-    return template.no_of_wishes.get() < 15;
+    return template.no_of_wishes.get() < Counts.get('wishCount');
   }
 });
 
