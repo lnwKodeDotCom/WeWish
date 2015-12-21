@@ -18,5 +18,8 @@ Template.wishDetail.helpers({
   },
   comments() {
     return Comments.find().fetch();
+  },
+  wishId() {
+    return Template.instance().wishId;
   }
 });

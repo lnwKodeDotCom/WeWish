@@ -2,7 +2,14 @@
     <div class="row" style="padding:0 15px; font-size: larger;">
         <div class="panel panel-default">
             <div class="panel-body">
-              {{> quickForm collection="Comments" id="newComments" type="insert"}}
+              {{#autoForm collection="Comments" id="newComments" type="insert"}}
+                  <fieldset>
+                      <legend>Post a comment</legend>
+                    {{> afQuickField name='message' label=false}}
+                    {{> afQuickField name='wish_id' value=wishId}}
+                  </fieldset>
+                  <button type="submit" class="btn btn-primary">Post</button>
+              {{/autoForm}}
             </div>
         </div>
     </div>
