@@ -10,11 +10,27 @@ Wish.schema = new SimpleSchema({
     type: String,
     label: 'Detail',
     max: 500,
-    optional: true
+    optional: true,
+    autoform: {
+      rows: 3
+    }
   },
   owner_id: {
     type: String,
-    optional: true
+    optional: true,
+    autoValue: function() {
+      var userId = Meteor.userId() || '';
+      if (this.isInsert) {
+        return userId;
+      } else if (this.isUpsert) {
+        return {$setOnInsert: userId};
+      } else {
+        this.unset();  // Prevent user from supplying their own value
+      }
+    },
+    autoform: {
+      type: "hidden"
+    }
   },
   date_created: {
     type: Date,
@@ -27,6 +43,9 @@ Wish.schema = new SimpleSchema({
       } else {
         this.unset();  // Prevent user from supplying their own value
       }
+    },
+    autoform: {
+      omit: true
     }
   }
 });
