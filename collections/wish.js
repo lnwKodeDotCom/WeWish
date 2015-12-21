@@ -52,7 +52,6 @@ Wish.schema = new SimpleSchema({
   no_of_comments: {
     type: Number,
     optional: true,
-    defaultValue: 0,
     autoform: {
       omit: true
     }
