@@ -35,3 +35,5 @@ reactive-dict
 aldeed:collection2
 tracker
 sacha:spin
+aldeed:simple-schema
+aldeed:autoform

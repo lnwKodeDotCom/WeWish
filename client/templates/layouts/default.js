@@ -24,7 +24,9 @@ Template.default.helpers({
 	redirectPublic() {
 		return handleRedirect([
 			'index',
-			'dashboard'
+			'dashboard',
+      'wishNew',
+      'wishDetail'
 		], '/login' );
 	}
 });
