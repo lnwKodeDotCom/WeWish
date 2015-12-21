@@ -1,6 +1,6 @@
 Template.wishItem.helpers({
   dateOfWish() {
     var data = Template.instance().data;
-    return moment().format('LLLL');
+    return moment().format('DD.MM.YYYY');
   }
 });
