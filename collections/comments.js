@@ -65,3 +65,17 @@ Comments.deny({
   update: () => true,
   remove: () => true
 });
+
+if (Meteor.isServer) {
+  Comments.after.insert(function (userId, doc) {
+    var no_of_comments = Comments.find({wish_id: doc.wish_id}).count();
+    if (no_of_comments>0) {
+      Wish.direct.update({_id: doc.wish_id},{
+        $set: {
+          no_of_comments: no_of_comments
+        }
+      });
+    }
+  });
+}
+
