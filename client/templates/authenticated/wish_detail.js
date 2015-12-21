@@ -5,6 +5,7 @@ Template.wishDetail.onCreated(() => {
 
   template.autorun(() => {
     template.subscribe('wishDetail', template.wishId);
+    template.subscribe('comments', template.wishId);
   });
 });
 
@@ -14,5 +15,8 @@ Template.wishDetail.helpers({
   },
   detail() {
     return Wish.findOne();
+  },
+  comments() {
+    return Comments.find().fetch();
   }
 });
