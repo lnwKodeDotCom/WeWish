@@ -34,7 +34,7 @@ Wish.schema = new SimpleSchema({
   },
   date_created: {
     type: Date,
-    optional: false,
+    optional: true,
     autoValue: function() {
       if (this.isInsert) {
         return new Date();
@@ -44,6 +44,14 @@ Wish.schema = new SimpleSchema({
         this.unset();  // Prevent user from supplying their own value
       }
     },
+    autoform: {
+      omit: true
+    }
+  },
+
+  no_of_comments: {
+    type: Number,
+    optional: true,
     autoform: {
       omit: true
     }
@@ -62,4 +70,12 @@ Wish.deny({
   insert: () => false,
   update: () => true,
   remove: () => true
+});
+
+Wish.helpers({
+  ownerName() {
+    let owner = Meteor.users.findOne(this.owner_id);
+    let emailName = (x) => x.address.split('@')[0];
+    return owner && owner.emails && owner.emails.length>0 && emailName(owner.emails[0]);
+  }
 });

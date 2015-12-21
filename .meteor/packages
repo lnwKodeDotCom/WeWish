@@ -37,3 +37,6 @@ tracker
 sacha:spin
 aldeed:simple-schema
 aldeed:autoform
+dburles:collection-helpers
+momentjs:moment
+matb33:collection-hooks
