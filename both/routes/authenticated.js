@@ -16,6 +16,13 @@ authenticatedRoutes.route( '/dashboard', {
   }
 });
 
+authenticatedRoutes.route('/wish/new', {
+  name: 'wishNew',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'wishNew' } );
+  }
+});
+
 authenticatedRoutes.route('/wish/:_id', {
   name: 'wishDetail',
   action() {
@@ -23,9 +30,3 @@ authenticatedRoutes.route('/wish/:_id', {
   }
 });
 
-authenticatedRoutes.route('/wish/new', {
-  name: 'wishNew',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'wishNew' } );
-  }
-});
