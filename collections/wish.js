@@ -4,7 +4,30 @@ Wish.schema = new SimpleSchema({
   title: {
     type: String,
     label: 'Your wish',
-    min: 20
+    min: 10
+  },
+  description: {
+    type: String,
+    label: 'Detail',
+    max: 500,
+    optional: true
+  },
+  owner_id: {
+    type: String,
+    optional: true
+  },
+  date_created: {
+    type: Date,
+    optional: false,
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date();
+      } else if (this.isUpsert) {
+        return {$setOnInsert: new Date()};
+      } else {
+        this.unset();  // Prevent user from supplying their own value
+      }
+    }
   }
 });
 
