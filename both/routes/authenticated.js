@@ -16,9 +16,16 @@ authenticatedRoutes.route( '/dashboard', {
   }
 });
 
-authenticatedRoutes.route('/wish-detail/:_id', {
+authenticatedRoutes.route('/wish/:_id', {
   name: 'wishDetail',
   action() {
     BlazeLayout.render( 'default', { yield: 'wishDetail' } );
+  }
+});
+
+authenticatedRoutes.route('/wish/new', {
+  name: 'wishNew',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'wishNew' } );
   }
 });
